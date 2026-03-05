@@ -1,0 +1,34 @@
+{
+  "job_name": "github_events",
+  "source": {
+    "base_url": "https://api.github.com",
+    "endpoint": "/events",
+    "method": "GET",
+    "headers": {
+      "Accept": "application/vnd.github+json"
+    }
+  },
+  "auth": {
+    "type": "bearer_token",
+    "keyvault_secret_name": "github-api-token",
+    "header_name": "Authorization"
+  },
+  "pagination": {
+    "type": "page",
+    "page_param": "page",
+    "page_size_param": "per_page",
+    "page_size": 100,
+    "max_pages": 10
+  },
+  "incremental": {
+    "enabled": true,
+    "watermark_field": "created_at"
+  },
+  "sink": {
+    "format": "parquet",
+    "container": "bronze",
+    "dataset": "github/events",
+    "partition_by": ["date"],
+    "partition_source_field": "created_at"
+  }
+}

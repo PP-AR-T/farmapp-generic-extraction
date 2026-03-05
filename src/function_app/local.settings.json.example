@@ -1,0 +1,13 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "python",
+    "ADLS_ACCOUNT_NAME": "<your-adls-account-name>",
+    "KEY_VAULT_URI": "https://<your-key-vault-name>.vault.azure.net/",
+    "CONFIG_CONTAINER": "configs",
+    "STATE_CONTAINER": "state",
+    "DEFAULT_TIMER_SCHEDULE": "0 0 * * * *",
+    "DEFAULT_JOB_NAME": "github_events"
+  }
+}
